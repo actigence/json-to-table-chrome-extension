@@ -1,0 +1,27 @@
+{
+    "manifest_version"        : 2,
+    "name"                    : "JSON As Table Viewer",
+    "version"                 : "1.0.0",
+    "description"             : "Display a JSON content as a table",
+    "content_scripts"         : [
+        {
+            "css"    : [
+                "libs/datatables.css"
+            ],
+            "js"     : [
+                "libs/jQuery-3.3.1/jquery-3.3.1.js",
+                "libs/datatables.js",
+                "src/content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "permissions"             : [
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "libs/DataTables-1.10.21/images/*"
+    ]
+}
