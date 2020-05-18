@@ -101,8 +101,10 @@ function tableHTML() {
         "<head>" +
         "    <meta charset=\"UTF-8\">" +
         "    <title>Title</title>" +
+        "<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\" rel=\"stylesheet\">" +
         "</head>" +
         "<body>" +
+        "<div class='acs-logo-bg'><div class='acs-logo'></div></div>" +
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
         "<hr/>" +

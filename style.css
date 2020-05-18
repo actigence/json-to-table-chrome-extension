@@ -1,5 +1,7 @@
 body {
-    padding : 20px;
+    padding     : 20px;
+    font-family : 'Roboto', sans-serif;
+    font-size   : 14px;
 }
 
 td.details-control {
@@ -9,6 +11,17 @@ td.details-control {
 
 tr.shown td.details-control {
     background : url('chrome-extension://__MSG_@@extension_id__/images/details_close.png') no-repeat center center;
+}
+
+.acs-logo-bg {
+    background : url('chrome-extension://__MSG_@@extension_id__/images/LogoBg.png');
+    height     : 75px;
+    margin     : -30px -30px 40px;
+}
+
+.acs-logo {
+    background : url('chrome-extension://__MSG_@@extension_id__/images/LogoJAT.jpg') no-repeat left;
+    height     : 75px;
 }
 
 .acs-credits {
