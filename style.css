@@ -10,3 +10,8 @@ td.details-control {
 tr.shown td.details-control {
     background : url('chrome-extension://__MSG_@@extension_id__/images/details_close.png') no-repeat center center;
 }
+
+.acs-credits {
+    color     : #585858;
+    font-size : 0.8em;
+}

@@ -105,6 +105,14 @@ function tableHTML() {
         "<body>" +
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
+        "<hr/>" +
+        "<div class=\"acs-credits\">\n" +
+        "    <strong>Developed by:</strong>&nbsp;<a href=\"http://www.actigence.com\">Actigence Solutions</a><br/>" +
+        "    <strong>Source\n" +
+        "        Code:</strong>&nbsp;<a href=\"https://github.com/Actigence/json-to-table-chrome-extension\">Github</a><br/>" +
+        "    <strong>Report Issues:</strong>&nbsp;<a href=\"https://github.com/Actigence/json-to-table-chrome-extension/issues\">Github Issues</a><br/>\n" +
+        "</div>" +
+        "<hr/>" +
         "</body>" +
         "</html>"
 }
