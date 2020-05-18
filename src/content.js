@@ -14,7 +14,12 @@ function renderTable() {
     let keys = [];
 
     let contentArray = getContentArray(topObject);
+    if (contentArray === undefined) {
+        alert(errorMessage());
+        return;
+    }
 
+    //Find all keys in array objects.
     contentArray.forEach((item, index, array) => {
         for (let [keyItem, valueItem] of Object.entries(item)) {
             if (isPrimitive(valueItem)) {
@@ -26,6 +31,11 @@ function renderTable() {
         console.log('total keys: ' + keys);
     });
 
+    if (keys.length === 0) {
+        return;
+    }
+
+    //Create data array to be used by Datatables component
     contentArray.forEach((item, index, array) => {
         let itemData = {};
         keys.forEach((key, i, keyArray) => {
@@ -39,6 +49,7 @@ function renderTable() {
         dataArray.push(itemData);
     });
 
+    //Create column definition for datatables.
     keys.forEach((key, i, keyArray) => {
         dataColumns.push(
             {
@@ -53,11 +64,13 @@ function renderTable() {
 
     //Apply Datatables.net transformation
     $(document).ready(function () {
-        const table = $('#table_id').DataTable({
-            data   : dataArray,
-            columns: dataColumns,
-            order  : [[1, 'asc']]
-        });
+        const table = $('#table_id')
+            .DataTable({
+                responsive: true,
+                data      : dataArray,
+                columns   : dataColumns,
+                order     : [[1, 'asc']]
+            });
 
         //Expandable panel below each row to show original JSON of the row
         $('#table_id tbody').on('click', 'td.details-control', function () {
@@ -110,10 +123,12 @@ function childPanelHTML(d) {
 /**
  * Return whole base object, if it's a direct array, else
  * Return first field in base object that is an array, else
- * Return undefined
+ * Return the base object in an array
  */
 function getContentArray(baseObject) {
-    if (Array.isArray(baseObject)) {
+    if (baseObject === undefined || baseObject === null) {
+        return undefined;
+    } else if (Array.isArray(baseObject)) {
         return baseObject;
     } else {
         for (let [prop, val] of Object.entries(baseObject)) {
@@ -122,7 +137,9 @@ function getContentArray(baseObject) {
             }
         }
     }
-    return undefined;
+    let dummyArray = [];
+    dummyArray.push(baseObject);
+    return dummyArray;
 }
 
 /**
@@ -153,6 +170,20 @@ function isPrimitive(test) {
 }
 
 /**
+ * Generic error message
+ * @returns {string}
+ */
+function errorMessage() {
+    return "Oops! We are unable to identify the page content. If you feel this is an error. " +
+        "Please log an issue by visiting. https://github.com/Actigence/json-to-table-chrome-extension/issues";
+}
+
+/**
  * Calling start method to convert page content to Table view
  */
-renderTable();
+try {
+    renderTable();
+} catch (e) {
+    console.log(errorMessage());
+}
+

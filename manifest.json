@@ -3,6 +3,11 @@
     "name"                    : "JSON As Table Viewer",
     "version"                 : "1.0.0",
     "description"             : "Display a JSON content as a table",
+    "icons"                   : {
+        "16" : "images/icon.png",
+        "48" : "images/icon.png",
+        "128": "images/icon.png"
+    },
     "content_scripts"         : [
         {
             "css"    : [
