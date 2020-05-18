@@ -1,0 +1,12 @@
+body {
+    padding : 20px;
+}
+
+td.details-control {
+    background : url('chrome-extension://__MSG_@@extension_id__/images/details_open.png') no-repeat center center;
+    cursor     : pointer;
+}
+
+tr.shown td.details-control {
+    background : url('chrome-extension://__MSG_@@extension_id__/images/details_close.png') no-repeat center center;
+}

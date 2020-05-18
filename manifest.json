@@ -6,7 +6,8 @@
     "content_scripts"         : [
         {
             "css"    : [
-                "libs/datatables.css"
+                "libs/datatables.css",
+                "style.css"
             ],
             "js"     : [
                 "libs/jQuery-3.3.1/jquery-3.3.1.js",
@@ -22,6 +23,7 @@
         "activeTab"
     ],
     "web_accessible_resources": [
-        "libs/DataTables-1.10.21/images/*"
+        "libs/DataTables-1.10.21/images/*",
+        "images/*"
     ]
 }
