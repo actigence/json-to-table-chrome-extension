@@ -1,7 +1,6 @@
 body {
-    padding     : 20px;
     font-family : 'Roboto', sans-serif;
-    font-size   : 14px;
+    font-size   : 0.9em;
 }
 
 td.details-control {
@@ -13,18 +12,37 @@ tr.shown td.details-control {
     background : url('chrome-extension://__MSG_@@extension_id__/images/details_close.png') no-repeat center center;
 }
 
+.acs-content-div {
+}
+
+.acs-table-div {
+    padding : 20px;
+}
+
 .acs-logo-bg {
-    background : url('chrome-extension://__MSG_@@extension_id__/images/LogoBg.png');
+    background : url('chrome-extension://__MSG_@@extension_id__/images/logo_bg.png');
     height     : 75px;
-    margin     : -30px -30px 40px;
+    margin     : -10px -10px 40px;
 }
 
 .acs-logo {
-    background : url('chrome-extension://__MSG_@@extension_id__/images/LogoJAT.jpg') no-repeat left;
+    background : url('chrome-extension://__MSG_@@extension_id__/images/logo_flat.png') no-repeat left;
     height     : 75px;
 }
 
 .acs-credits {
     color     : #585858;
     font-size : 0.8em;
+}
+
+td {
+    font-size : 0.9em;
+}
+
+th {
+    font-size : 1.0em;
+}
+
+pre {
+    font-size : 1.2em;
 }

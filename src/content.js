@@ -101,12 +101,15 @@ function tableHTML() {
         "<head>" +
         "    <meta charset=\"UTF-8\">" +
         "    <title>Title</title>" +
-        "<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\" rel=\"stylesheet\">" +
+        "<link href=\"https://fonts.googleapis.com/css2?family=Lateef&family=Roboto&display=swap\" rel=\"stylesheet\">" +
         "</head>" +
         "<body>" +
+        "<div id='content-div' class='acs-content-div'>" +
         "<div class='acs-logo-bg'><div class='acs-logo'></div></div>" +
+        "<div id='table-div' class='acs-table-div'>" +
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
+        "</div>" +
         "<hr/>" +
         "<div class=\"acs-credits\">\n" +
         "    <strong>Developed by:</strong>&nbsp;<a href=\"http://www.actigence.com\">Actigence Solutions</a><br/>" +
@@ -115,6 +118,7 @@ function tableHTML() {
         "    <strong>Report Issues:</strong>&nbsp;<a href=\"https://github.com/Actigence/json-to-table-chrome-extension/issues\">Github Issues</a><br/>\n" +
         "</div>" +
         "<hr/>" +
+        "</div>" +
         "</body>" +
         "</html>"
 }
