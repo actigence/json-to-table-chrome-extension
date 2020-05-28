@@ -22,7 +22,7 @@ function renderTable() {
     //Find all keys in array objects.
     contentArray.forEach((item, index, array) => {
         for (let [keyItem, valueItem] of Object.entries(item)) {
-            if (isPrimitive(valueItem)) {
+            if (valueItem !== undefined && valueItem !== null && isPrimitive(valueItem)) {
                 if (!keys.includes(keyItem)) {
                     keys.push(keyItem);
                 }
@@ -100,7 +100,7 @@ function tableHTML() {
         "<html lang=\"en\">" +
         "<head>" +
         "    <meta charset=\"UTF-8\">" +
-        "    <title>Title</title>" +
+        "    <title>JSON-As-Table</title>" +
         "<link href=\"https://fonts.googleapis.com/css2?family=Lateef&family=Roboto&display=swap\" rel=\"stylesheet\">" +
         "</head>" +
         "<body>" +

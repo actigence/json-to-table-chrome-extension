@@ -1,14 +1,14 @@
 {
-    "manifest_version": 2,
-    "name"            : "JSON-As-Table Viewer",
-    "version"         : "1.0.0",
-    "description"     : "Jason-As-Table viewer is a simple Chrome Extension that displays JSON data as a table.",
-    "icons"           : {
-        "16" : "images/icon.png",
-        "48" : "images/icon.png",
-        "128": "images/icon.png"
+    "manifest_version"        : 2,
+    "name"                    : "JSON-As-Table Viewer",
+    "version"                 : "1.0.2",
+    "description"             : "*** View JSON response from a URL as HTML table ***",
+    "icons"                   : {
+        "16" : "images/icon16.png",
+        "48" : "images/icon48.png",
+        "128": "images/icon128.png"
     },
-    "content_scripts" : [
+    "content_scripts"         : [
         {
             "css"    : [
                 "libs/datatables.css",
@@ -23,9 +23,6 @@
                 "<all_urls>"
             ]
         }
-    ],
-    "permissions"             : [
-        "activeTab"
     ],
     "web_accessible_resources": [
         "libs/DataTables-1.10.21/images/*",
