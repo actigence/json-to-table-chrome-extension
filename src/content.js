@@ -2,6 +2,11 @@
  * This is the main function, that reads the content of the page and renders that as a Table.
  */
 function renderTable() {
+    if (!isJsonOnlyPage()) {
+        console.log("Page content does not seem to be simple JSON. Exiting.");
+        return;
+    }
+
     let topObject = JSON.parse(document.getElementsByTagName("pre")[0].innerText);
 
     let dataArray = [];
@@ -190,6 +195,16 @@ function isPrimitive(test) {
 function errorMessage() {
     return "Oops! We are unable to identify the page content. If you feel this is an error. " +
         "Please log an issue by visiting. https://github.com/Actigence/json-to-table-chrome-extension/issues";
+}
+
+/**
+ * Page content should only have JSON text and nothing else.
+ * @returns {boolean}
+ */
+function isJsonOnlyPage() {
+    return document.body !== undefined
+        && document.body.getElementsByTagName("*").length === 1
+        && document.getElementsByTagName("pre").length === 1;
 }
 
 /**
