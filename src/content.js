@@ -7,18 +7,19 @@ function renderTable() {
         return;
     }
 
-    let topObject = JSON.parse(document.getElementsByTagName("pre")[0].innerText);
+    const originalJsonText = document.getElementsByTagName("pre")[0].innerText;
+    const originalJsonObject = JSON.parse(originalJsonText);
 
     let dataArray = [];
     let dataColumns = [{
-        "className"     : 'details-control',
-        "orderable"     : false,
-        "data"          : null,
+        "className": 'details-control',
+        "orderable": false,
+        "data": null,
         "defaultContent": ''
     }];
     let keys = [];
 
-    let contentArray = getContentArray(topObject);
+    let contentArray = getContentArray(originalJsonObject);
     if (contentArray === undefined) {
         alert(errorMessage());
         return;
@@ -58,7 +59,7 @@ function renderTable() {
     keys.forEach((key, i, keyArray) => {
         dataColumns.push(
             {
-                data : key,
+                data: key,
                 title: camel2title(key)
             }
         );
@@ -67,14 +68,18 @@ function renderTable() {
     //Over ride content of entire page to show table.
     document.all[0].innerHTML = tableHTML();
 
+    //Set Original JSON in collapsible panel
+    document.getElementById("original-json-div").innerText
+        = JSON.stringify(originalJsonObject, undefined, 4);
+
     //Apply Datatables.net transformation
     $(document).ready(function () {
         const table = $('#table_id')
             .DataTable({
                 responsive: true,
-                data      : dataArray,
-                columns   : dataColumns,
-                order     : [[1, 'asc']]
+                data: dataArray,
+                columns: dataColumns,
+                order: [[1, 'asc']]
             });
 
         //Expandable panel below each row to show original JSON of the row
@@ -115,6 +120,14 @@ function tableHTML() {
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
         "</div>" +
+        "<br/>" +
+        "<button type=\"button\" class=\"collapsible\">Click to see original JSON text</button>\n" +
+        "<div class=\"content\">\n" +
+        "  <pre style=\"padding-left: 50px;\" id=\"original-json-div\">" +
+        "  </pre>\n" +
+        "</div>" +
+        "<br/>" +
+        "<br/>" +
         "<hr/>" +
         "<div class=\"acs-credits\">\n" +
         "    <strong>Developed by:</strong>&nbsp;<a href=\"http://www.actigence.com\">Actigence Solutions</a><br/>" +

@@ -1,23 +1,24 @@
 {
     "manifest_version": 2,
-    "name"            : "JSON-As-Table Viewer",
-    "version"         : "1.0.3",
-    "description"     : "*** View JSON response from a URL as HTML table ***",
-    "icons"           : {
-        "16" : "images/icon16.png",
-        "48" : "images/icon48.png",
+    "name": "JSON-As-Table Viewer",
+    "version": "1.0.5",
+    "description": "*** View JSON response from a URL as HTML table ***",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
         "128": "images/icon128.png"
     },
-    "content_scripts" : [
+    "content_scripts": [
         {
-            "css"    : [
+            "css": [
                 "libs/datatables.css",
                 "style.css"
             ],
             "js"     : [
                 "libs/jQuery-3.3.1/jquery-3.3.1.js",
                 "libs/datatables.js",
-                "src/content.js"
+                "src/content.js",
+                "main.js"
             ],
             "matches": [
                 "<all_urls>"
