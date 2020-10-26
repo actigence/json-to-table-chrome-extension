@@ -40,11 +40,26 @@ The JSON data is converted to table format using following rules:
 * If JSON data is an object, then the items with in the first array field are shown as table rows.
 * If JSON does not contain any array field, then JSON data is not converted.
 
-# Screenshots
+# Getting started
+
+Follow below steps to start using this plugin.
+* Visit plugin page on [Chrome App Store](https://chrome.google.com/webstore/detail/json-as-table-viewer/khclkgjdjddedohnomokbhinlmpclick).
+* Click `Add to Chrome` button to install this plugin.
+![Add to Chrome](JAT_AddToChrome.png)
+* Click `Add extension` when the confirmation popup shows up.
+![Confirmation](JAT_AddExtension.png)
+* Pin the extension so that it is available on your Chrome bar.
+![Pin Extension](JAT_PinExt.png)
+* That's it. If you visit a JSON page (Example [this one](https://raw.githubusercontent.com/actigence/mock-api-server-demo/main/api/countries/get.json)), you will get a tabular view.
+![Converted](JAT_Converted.png)
+* You can easily customize when this extension gets activated, by visiting a [JSON URL](https://raw.githubusercontent.com/actigence/mock-api-server-demo/main/api/countries/get.json) and clicking plugin icon from your tool bar.
+![Customize](JAT_Customize.png)
+
+# Other Screenshots
 
 ![Table View](JAT_Table.png)
 
 ![Table View Wih Panel](JAT_Table_Expanded.png)
 
 # Report Issues
-Use the Issues tab of this repository to report any issues or ask for support.
+Use the [Issues tab](https://github.com/actigence/json-to-table-chrome-extension/issues) of this repository to report any issues or ask for support.
