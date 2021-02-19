@@ -79,7 +79,8 @@ function renderTable() {
                 responsive: true,
                 data: dataArray,
                 columns: dataColumns,
-                order: [[1, 'asc']]
+                order: [[1, 'asc']],
+                "lengthMenu": [[20, 30, 50, 100, -1], [20, 30, 50, 100, "All"]]
             });
 
         //Expandable panel below each row to show original JSON of the row
@@ -135,7 +136,6 @@ function tableHTML() {
         "</head>" +
         "<body>" +
         "<div id='content-div' class='acs-content-div'>" +
-        "<div class='acs-logo-bg'><div class='acs-logo'></div></div>" +
         "<div id='table-div' class='acs-table-div'>" +
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
