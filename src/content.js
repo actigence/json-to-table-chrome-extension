@@ -80,7 +80,7 @@ function renderTable() {
                 data: dataArray,
                 columns: dataColumns,
                 order: [[1, 'asc']],
-                "lengthMenu": [[20, 30, 50, 100, -1], [20, 30, 50, 100, "All"]]
+                "lengthMenu": [[-1, 20, 30, 50, 100], ["All", 20, 30, 50, 100]]
             });
 
         //Expandable panel below each row to show original JSON of the row
