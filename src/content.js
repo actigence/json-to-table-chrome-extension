@@ -79,7 +79,8 @@ function renderTable() {
                 responsive: true,
                 data: dataArray,
                 columns: dataColumns,
-                order: [[1, 'asc']]
+                order: [[1, 'asc']],
+                "lengthMenu": [[-1, 20, 30, 50, 100], ["All", 20, 30, 50, 100]]
             });
 
         //Expandable panel below each row to show original JSON of the row
@@ -97,6 +98,26 @@ function renderTable() {
                 tr.addClass('shown');
             }
         });
+
+        $('#exportCsv').on('click', function () {
+            const arrayOfJson = contentArray
+            const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
+            const header = Object.keys(arrayOfJson[0])
+            let csv = arrayOfJson.map(row => header.map(fieldName =>
+                JSON.stringify(row[fieldName], replacer)).join(','))
+            csv.unshift(header.join(','))
+            csv = csv.join('\r\n')
+            const filename = "json.csv"
+
+            // Create link and download
+            var link = document.createElement('a');
+            link.setAttribute('href', 'data:text/csv;charset=utf-8,%EF%BB%BF' + encodeURIComponent(csv));
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
     });
 }
 
@@ -115,10 +136,10 @@ function tableHTML() {
         "</head>" +
         "<body>" +
         "<div id='content-div' class='acs-content-div'>" +
-        "<div class='acs-logo-bg'><div class='acs-logo'></div></div>" +
         "<div id='table-div' class='acs-table-div'>" +
         "<table id=\"table_id\" class=\"display\">" +
         "</table>" +
+        "<button id=\"exportCsv\" type=\"button\">Export CSV</button>\n" +
         "</div>" +
         "<br/>" +
         "<button type=\"button\" class=\"collapsible\">Click to see original JSON text</button>\n" +
@@ -216,7 +237,7 @@ function errorMessage() {
  */
 function isJsonOnlyPage() {
     return document.body !== undefined
-        && document.body.getElementsByTagName("*").length === 1
+        && document.body.getElementsByTagName("*").length === 2
         && document.getElementsByTagName("pre").length === 1;
 }
 

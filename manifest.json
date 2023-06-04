@@ -1,7 +1,7 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "JSON-As-Table Viewer",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "*** View JSON response from a URL as HTML table ***",
     "icons": {
         "16": "images/icon16.png",
@@ -26,7 +26,12 @@
         }
     ],
     "web_accessible_resources": [
-        "libs/DataTables-1.10.21/images/*",
-        "images/*"
+        {
+            "resources": [
+                "libs/DataTables-1.10.21/images/*",
+                "images/*"
+            ],
+            "matches": [ "<all_urls>" ]
+        }
     ]
 }
